@@ -4,11 +4,32 @@
       <div class="card shadow-sm">
         <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
           <h5 class="mb-0">Zik Route Widget Tester</h5>
-          <span class="badge badge-light">Web Component Mode</span>
+          <div class="mode-switch btn-group btn-group-sm" role="group" aria-label="Widget mode switch">
+            <button
+              type="button"
+              class="btn"
+              [class.btn-light]="mode === 'web-component'"
+              [class.btn-outline-light]="mode !== 'web-component'"
+              (click)="setMode('web-component')">
+              Web Component
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [class.btn-light]="mode === 'iframe'"
+              [class.btn-outline-light]="mode !== 'iframe'"
+              (click)="setMode('iframe')">
+              iFrame
+            </button>
+          </div>
         </div>
-        <div class="card-body p-0" style="min-height: 600px; position: relative;">
-          <!-- The Widget -->
-          <zik-route-widget zik-connect-id="aaae676b-b294-4e74-a6af-bb4b0f5a2590"></zik-route-widget>
+        <div class="card-body p-0 widget-body">
+          <ng-container *ngIf="mode === 'web-component'; else iframeMode">
+            <zik-route-widget zik-connect-id="aaae676b-b294-4e74-a6af-bb4b0f5a2590"></zik-route-widget>
+          </ng-container>
+          <ng-template #iframeMode>
+            <app-iframe-widget></app-iframe-widget>
+          </ng-template>
         </div>
       </div>
     </div>

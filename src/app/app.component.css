@@ -9,6 +9,15 @@
   font-weight: 600;
 }
 
+.mode-switch .btn {
+  min-width: 120px;
+}
+
+.widget-body {
+  min-height: 600px;
+  position: relative;
+}
+
 zik-route-widget {
   display: block;
   width: 100%;
