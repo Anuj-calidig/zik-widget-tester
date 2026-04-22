@@ -20,19 +20,25 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
   <!-- Zik Route Widget Assets (loaded dynamically to bypass Vite pre-transform) -->
-  <link rel="stylesheet" href="/zik-widget/styles.css" />
+  <link rel="stylesheet" href="https://cali-clinic.calidig.com/zik-widget/styles.css" />
   <script>
     (function() {
-      function loadScript(src, isModule) {
+      var widgetBase = 'https://cali-clinic.calidig.com/zik-widget/';
+
+      function loadScript(src, opts) {
         var s = document.createElement('script');
-        s.src = src;
-        if (isModule) { s.type = 'module'; }
-        else { s.defer = true; }
+        s.src = widgetBase + src;
+        if (opts && opts.module) { s.type = 'module'; }
+        if (opts && opts.noModule) { s.noModule = true; }
+        if (!opts || opts.defer !== false) { s.defer = true; }
         document.head.appendChild(s);
       }
-      loadScript('/zik-widget/polyfills-es2015.js', true);
-      loadScript('/zik-widget/scripts.js', false);
-      loadScript('/zik-widget/main-es2015.js', true);
+
+      loadScript('polyfills-es5.js', { noModule: true });
+      loadScript('polyfills-es2015.js', { module: true });
+      loadScript('scripts.js');
+      loadScript('main-es2015.js', { module: true });
+      loadScript('main-es5.js', { noModule: true });
     })();
   </script>
 </head>
