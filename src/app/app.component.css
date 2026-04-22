@@ -1,0 +1,17 @@
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  border: none;
+}
+
+.card-header {
+  border-bottom: none;
+  font-weight: 600;
+}
+
+zik-route-widget {
+  display: block;
+  width: 100%;
+  height: 600px;
+  /* Force a height for the widget */
+}

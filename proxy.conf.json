@@ -1,0 +1,8 @@
+{
+  "/zik-widget": {
+    "target": "https://cali-clinic.calidig.com",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
