@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/zik-widget/:path*",
+      "destination": "https://cali-clinic.calidig.com/zik-widget/:path*"
+    }
+  ]
+}
